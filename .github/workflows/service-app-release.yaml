@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: node
+          cache: npm
           cache-dependency-path: ./**/package-lock.json
       - run: npm ci
       - run: npm test
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: node
+          cache: npm
           cache-dependency-path: ./**/package-lock.json
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
