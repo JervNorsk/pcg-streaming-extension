@@ -17,9 +17,11 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: ./**/package-lock.json
-      - run: npm ci
-      - run: npm test
+          cache-dependency-path: services/app/package-lock.json
+      - working-directory: services/app
+        run: |
+          npm ci
+          npm test
 
   publish-gpr:
     needs: build
@@ -35,7 +37,9 @@ jobs:
           cache: npm
           cache-dependency-path: ./**/package-lock.json
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+      - working-directory: services/app
+        run: |
+          npm ci
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
