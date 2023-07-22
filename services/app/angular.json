@@ -1,0 +1,89 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "projects": {
+    "pcg-streaming-extension": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styles": [
+            "sass"
+          ]
+        }
+      },
+      "root": "",
+      "sourceRoot": "src/main",
+      "prefix": "pcg-se",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/pcg-streaming-extension",
+            "index": {
+              "input": "src/main/typescript/io/github/jervnorsk/extensions/pcg/streaming/services/app/pcg-se-app.index.html",
+              "output": "index.html"
+            },
+            "main": "src/main/typescript/io/github/jervnorsk/extensions/pcg/streaming/services/app/pcg-se-app.main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              {
+                "glob": "**/assets/**/*",
+                "input": "src/main/resources/io/github/jervnorsk/extensions/pcg/streaming/services/app/",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/main/typescript/io/github/jervnorsk/extensions/pcg/streaming/services/app/pcg-se-app.main.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "namedChunks": true,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "pcg-streaming-extension:build:production"
+            },
+            "development": {
+              "browserTarget": "pcg-streaming-extension:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "45035b7b-97b2-4f08-8f7c-80446408c5aa"
+  }
+}
