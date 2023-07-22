@@ -12,10 +12,6 @@ const routes: Routes = [
         path: 'events',
         children: [
           {
-            path: "timer",
-            component: PcgSeTimerComponent
-          },
-          {
             path: "show_current_pokemon",
             component: PcgSePokemonComponent,
             data: {
@@ -24,7 +20,11 @@ const routes: Routes = [
             }
           },
           {
-            path: "sound_alert",
+            path: "spawn_cooldown",
+            component: PcgSeTimerComponent
+          },
+          {
+            path: "spawn_alert",
             component: PcgSeSoundAlertComponent,
             data: {
               gen: "i",
