@@ -1,3 +1,7 @@
+### Create an OpenAPI Documentation
+
+###### Create a file in OpenAPI for a better documentation of endpoints exposed and their customizations.
+
 ### Migration to Kotlin Multiplatform
 ###### For a better integration with other projects and with my scope of abuse of Kotlin Multiplatform for my personal projects.
 
