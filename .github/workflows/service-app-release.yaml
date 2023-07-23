@@ -32,11 +32,13 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: ./**/package-lock.json
+          cache-dependency-path: services/app/package-lock.json
           registry-url: https://npm.pkg.github.com/
       - working-directory: services/app
         run: |
           npm ci
+          npm run build
+          npm version from-git
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
