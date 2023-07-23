@@ -3,7 +3,7 @@ name: Release of service App
 on:
   push:
     tags:
-      - '*'
+      - 'v*.*.*'
 
 jobs:
   build:
@@ -37,7 +37,6 @@ jobs:
       - working-directory: services/app
         run: |
           npm ci
-          npm version from-git
           npm run build
           npm publish
         env:
