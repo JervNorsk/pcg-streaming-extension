@@ -37,8 +37,8 @@ jobs:
       - working-directory: services/app
         run: |
           npm ci
-          npm run build
           npm version from-git
+          npm run build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
