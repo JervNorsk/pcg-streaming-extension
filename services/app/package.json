@@ -25,6 +25,10 @@
   "files": [
     "../../LICENSE",
     "../../README.md",
+    "tsconfig.json",
+    "tsconfig.spec.json",
+    "tsconfig.app.json",
+    "angular.json",
     "src"
   ],
   "dependencies": {
