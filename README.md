@@ -1,7 +1,7 @@
 ## Pokémon Community Game (Streaming Extension)
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/jervnorsk/pcg-streaming-extension?filename=services%2Fapp%2Fpackage.json)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jervnorsk/pcg-streaming-extension/service-app-release.yaml)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jervnorsk/pcg-streaming-extension/service-app-on-tag.yaml)
 
 This project have the purpose of extends the functionalities of Pokémon Community Game for Twitch.
 
