@@ -65,5 +65,5 @@ jobs:
           target-branch: github/pages
           target-directory: extensions/pcg/streaming
         env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.DEPLOYMENT_GITHUB_TOKEN }}
 
