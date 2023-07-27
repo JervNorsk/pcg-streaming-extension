@@ -1,6 +1,6 @@
 {
   "name": "@jervnorsk/pcg-streaming-extension",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "An easy access to the (Pokemon Community Game for Twitch) PCG's functionalities designed for directly import them in you streaming tool",
   "scripts": {
     "ng": "ng",
