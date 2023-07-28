@@ -1,0 +1,26 @@
+{
+  "name": "@jervnorsk/pcg-streaming-extension",
+  "version": "0.0.1-alpha.0",
+  "description": "An easy access to the (Pokemon Community Game for Twitch) PCG's functionalities designed for directly import them in you streaming tool",
+  "publishConfig": {
+    "@jervnorsk:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JervNorsk/pcg-streaming-extension.git"
+  },
+  "author": "JervNorsk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JervNorsk/pcg-streaming-extension/issues"
+  },
+  "homepage": "https://github.com/JervNorsk/pcg-streaming-extension#readme",
+  "peerDependencies": {
+    "@angular/common": "^16.1.0",
+    "@angular/core": "^16.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

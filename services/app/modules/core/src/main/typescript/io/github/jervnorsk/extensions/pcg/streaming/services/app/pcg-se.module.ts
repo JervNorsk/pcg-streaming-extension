@@ -1,16 +1,18 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from "@angular/platform-browser";
-import {PcgSeAppComponent} from "./pce-se-app.component";
-import {PcgSeAppRoutingModule} from "./pcg-se-app-routing.module";
+import {CommonModule} from "@angular/common";
+import {PcgSeTimerComponent} from "./features/timer/pce-se-timer.component";
+import {PcgSePokemonComponent} from "./features/pokemon/pce-se-pokemon.component";
+import {PcgSeSoundAlertComponent} from "./features/alerts/pce-se-sound-alert.component";
 
 @NgModule({
   declarations: [
-    PcgSeAppComponent,
+    PcgSeTimerComponent,
+    PcgSePokemonComponent,
+    PcgSeSoundAlertComponent
   ],
   imports: [
     // Module
     // -------------------------------------------------------------------------------------------------------------
-    PcgSeAppRoutingModule,
 
     // Feature
     // -------------------------------------------------------------------------------------------------------------
@@ -23,14 +25,13 @@ import {PcgSeAppRoutingModule} from "./pcg-se-app-routing.module";
 
     // Framework
     // -------------------------------------------------------------------------------------------------------------
-    BrowserModule,
+    CommonModule,
   ],
-  providers: [],
-  bootstrap: [
-    // Module
-    // -------------------------------------------------------------------------------------------------------------
-    PcgSeAppComponent
+  exports: [
+      PcgSeTimerComponent,
+      PcgSePokemonComponent,
+      PcgSeSoundAlertComponent
   ]
 })
-export class PcgSeAppModule {
+export class PcgSeModule {
 }

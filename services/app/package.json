@@ -1,7 +1,6 @@
 {
-  "name": "@jervnorsk/pcg-streaming-extension",
-  "version": "0.0.1-alpha.3",
-  "description": "An easy access to the (Pokemon Community Game for Twitch) PCG's functionalities designed for directly import them in you streaming tool",
+  "name": "@jervnorsk/pcg-streaming-extension-app",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,19 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "publishConfig": {
-    "@jervnorsk:registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JervNorsk/pcg-streaming-extension.git"
-  },
-  "author": "JervNorsk",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JervNorsk/pcg-streaming-extension/issues"
-  },
-  "homepage": "https://github.com/JervNorsk/pcg-streaming-extension#readme",
+  "private": true,
   "dependencies": {
     "@angular/animations": "^16.1.0",
     "@angular/common": "^16.1.0",
@@ -47,6 +34,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^16.0.0",
     "typescript": "~5.1.3"
   }
 }

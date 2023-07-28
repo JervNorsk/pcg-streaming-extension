@@ -1,16 +1,14 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from "@angular/platform-browser";
-import {PcgSeAppComponent} from "./pce-se-app.component";
-import {PcgSeAppRoutingModule} from "./pcg-se-app-routing.module";
+import {PcgSeApiRoutingModule} from "./pcg-se-api-routing.module";
+import {CommonModule} from "@angular/common";
+import {PcgSeModule} from "../pcg-se.module";
 
 @NgModule({
-  declarations: [
-    PcgSeAppComponent,
-  ],
   imports: [
     // Module
     // -------------------------------------------------------------------------------------------------------------
-    PcgSeAppRoutingModule,
+    PcgSeModule,
+    PcgSeApiRoutingModule,
 
     // Feature
     // -------------------------------------------------------------------------------------------------------------
@@ -23,14 +21,9 @@ import {PcgSeAppRoutingModule} from "./pcg-se-app-routing.module";
 
     // Framework
     // -------------------------------------------------------------------------------------------------------------
-    BrowserModule,
+    CommonModule,
   ],
-  providers: [],
-  bootstrap: [
-    // Module
-    // -------------------------------------------------------------------------------------------------------------
-    PcgSeAppComponent
-  ]
+  providers: []
 })
-export class PcgSeAppModule {
+export class PcgSeApiModule {
 }
