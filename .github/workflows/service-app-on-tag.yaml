@@ -56,7 +56,6 @@ jobs:
       - working-directory: services/app
         run: |
           npm ci
-          npm run build -- --base-href /extensions/pcg/streaming/
       - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -64,6 +63,7 @@ jobs:
           angular_project_dir: services/app
           angular_dist_build_folder: services/app/dist/app
           deploy_branch: github/pages
+          base_href: /extensions/pcg/streaming/
       - uses: cpina/github-action-push-to-another-repository@main
         with:
           destination-github-username: jervnorsk
