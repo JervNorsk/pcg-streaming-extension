@@ -3,7 +3,7 @@ name: Continuous Publishing on GitHub
 on:
   push:
     tags:
-      - '^v*.*.*$'
+      - 'services/app/^v*.*.*$'
 
 permissions:
   packages: write
@@ -40,4 +40,5 @@ jobs:
         run: |
           npm ci
           npm run build core
+          cp ../../README.md ./dist/modules/core
           npm publish ./dist/modules/core
