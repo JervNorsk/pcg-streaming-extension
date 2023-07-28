@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://jervnorsk.github.com/integrations/pcg/streaming/
+      url: https://jervnorsk.github.io/integrations/pcg/streaming/
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
