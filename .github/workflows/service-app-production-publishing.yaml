@@ -3,7 +3,7 @@ name: Continuous Publishing on GitHub
 on:
   push:
     tags:
-      - 'services/app/v[0-9]+.[0-9]+.[0-9]+'
+      - 'services/app/v*'
 
 permissions:
   packages: write
