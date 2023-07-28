@@ -55,7 +55,7 @@ jobs:
       - working-directory: services/app
         run: |
           npm ci
-          npm run build
+          npm run build -- --base-href /extensions/pcg/streaming/
       - uses: cpina/github-action-push-to-another-repository@main
         with:
           destination-github-username: jervnorsk
