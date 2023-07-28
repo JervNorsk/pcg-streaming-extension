@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "projects": {
-    "pcg-streaming-extension": {
+    "app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pcg-streaming-extension",
+            "outputPath": "dist/app",
             "index": {
               "input": "src/main/typescript/io/github/jervnorsk/extensions/pcg/streaming/services/app/pcg-se-app.index.html",
               "output": "index.html"
@@ -72,13 +72,46 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pcg-streaming-extension:build:production"
+              "browserTarget": "app:build:production"
             },
             "development": {
-              "browserTarget": "pcg-streaming-extension:build:development"
+              "browserTarget": "app:build:development"
             }
           },
           "defaultConfiguration": "development"
+        }
+      }
+    },
+    "core": {
+      "projectType": "library",
+      "root": "core",
+      "sourceRoot": "modules/core/src/main",
+      "prefix": "pcg-se-event",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "modules/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "modules/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "modules/core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "modules/core/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
         }
       }
     }

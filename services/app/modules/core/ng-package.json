@@ -1,0 +1,7 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/modules/core",
+  "lib": {
+    "entryFile": "./src/main/typescript/io/github/jervnorsk/extensions/pcg/streaming/services/app/public-api.ts"
+  }
+}

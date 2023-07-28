@@ -1,39 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PcgSeTimerComponent} from "./features/timer/pce-se-timer.component";
-import {PcgSePokemonComponent} from "./features/pokemon/pce-se-pokemon.component";
-import {PcgSeSoundAlertComponent} from "./features/sound/alerts/pce-se-sound-alert.component";
 
 const routes: Routes = [
   {
-    path: 'info',
-    children: [
-      {
-        path: 'events',
-        children: [
-          {
-            path: "show_current_pokemon",
-            component: PcgSePokemonComponent,
-            data: {
-              event: "show",
-              target: "current"
-            }
-          },
-          {
-            path: "spawn_cooldown",
-            component: PcgSeTimerComponent
-          },
-          {
-            path: "spawn_alert",
-            component: PcgSeSoundAlertComponent,
-            data: {
-              gen: "i",
-              type: "wild_battle"
-            }
-          }
-        ]
-      }
-    ]
+    path: '',
+    loadChildren: () => import("../../../../../../../../../../../modules/core/src/main/typescript/io/github/jervnorsk/extensions/pcg/streaming/services/app/api/pcg-se-api.module").then(it => it.PcgSeApiModule)
   }
 ];
 
