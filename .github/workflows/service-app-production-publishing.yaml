@@ -1,0 +1,43 @@
+name: Continuous Publishing on GitHub
+
+on:
+  push:
+    tags:
+      - '^v*.*.*$'
+
+permissions:
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: services/app/package-lock.json
+      - working-directory: services/app
+        run: |
+          npm ci
+          #npm test     # TODO: Enable when test are written
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: services/app/package-lock.json
+          registry-url: https://npm.pkg.github.com/
+      - working-directory: services/app
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          npm ci
+          npm run build core
+          npm publish ./dist/modules/core
