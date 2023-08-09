@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
+  selector: '[pcg-se-timer]',
   template: ''
 })
 export class PcgSeTimerComponent implements OnInit {

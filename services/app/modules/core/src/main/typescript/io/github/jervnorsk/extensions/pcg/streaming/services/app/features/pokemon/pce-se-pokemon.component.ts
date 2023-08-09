@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {zip} from "rxjs";
 
 @Component({
+  selector: '[pcg-se-pokemon]',
   template: ''
 })
 export class PcgSePokemonComponent implements OnInit {

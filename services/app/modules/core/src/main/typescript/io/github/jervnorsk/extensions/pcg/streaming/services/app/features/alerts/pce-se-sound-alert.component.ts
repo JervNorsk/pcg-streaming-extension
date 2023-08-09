@@ -46,6 +46,7 @@ export class PcgSeSoundAlert {
 }
 
 @Component({
+  selector: '[pcg-se-sound-alert]',
   templateUrl: './pce-se-sound-alert.component.html'
 })
 export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
