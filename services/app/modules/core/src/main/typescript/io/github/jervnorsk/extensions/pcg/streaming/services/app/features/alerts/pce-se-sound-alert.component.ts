@@ -40,7 +40,8 @@ export class PcgSeSoundAlert {
       public generation: PcgSeSoundAlertGeneration,
       public type: PcgSeSoundAlertType,
       public trackId: string,
-      public trackDuration: number
+      public trackDuration: number,
+      public trackDelay?: number
   ) {
   }
 }
@@ -54,6 +55,7 @@ export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
   public debug: boolean = false;
 
   private soundAlert?: PcgSeSoundAlert;
+  private soundDelay?: number;
 
   private pcgBaseUrl = "https://poketwitch.bframework.de";
   private soundCloudPlayerBaseUrl: string = "https://w.soundcloud.com/player";
@@ -107,7 +109,8 @@ export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
       this.soundAlert = this.getSoundAlert(
           this.getSoundAlertGeneration(params["gen"]),
           this.getSoundAlertType(params["type"]),
-          params["duration"]
+          params["duration"],
+          params["delay"]
       )
       if (this.debug) {
         console.log(this.soundAlert);
@@ -126,7 +129,12 @@ export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
     });
   }
 
-  getSoundAlert(generation: PcgSeSoundAlertGeneration, type: PcgSeSoundAlertType, duration?: number): PcgSeSoundAlert {
+  getSoundAlert(
+      generation: PcgSeSoundAlertGeneration,
+      type: PcgSeSoundAlertType,
+      duration?: number,
+      delay?: number
+  ): PcgSeSoundAlert {
     const soundAlertTrack = this.getSoundCloudPlayerTrack(
         generation,
         type,
@@ -136,7 +144,8 @@ export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
         generation,
         type,
         soundAlertTrack.id,
-        soundAlertTrack.duration
+        soundAlertTrack.duration,
+        delay
     )
   }
 
@@ -204,7 +213,7 @@ export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
         // https://soundcloud.com/vgmplanet/battle-wild-pokemon-1?in=user-278345307/sets/all-pokemon-battle-themes-the&si=d6ec9d58a51743949bfe08d38ab2158f&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
         return {
           id: "1235709346",
-          duration: duration || 5100
+          duration: duration || 5000
         };
       }
     } else if (generation === PcgSeSoundAlertGeneration.IX) {
@@ -240,19 +249,23 @@ export class PcgSeSoundAlertComponent implements OnInit, AfterContentInit {
   }
 
   public simulateTimerSoundAlert() {
-    if (this.debug) {
-      console.log("play");
-    }
-
+    console.log("[simulateAlert]", "will start in " + this.soundAlert!.trackDelay || 0 + " milliseconds")
     setTimeout(
         () => {
-          this.soundCloudPlayer.pause();
+          if (this.debug) {
+            console.log("[simulateAlert]", "play")
+          }
+          setTimeout(
+              () => {
+                this.soundCloudPlayer.pause();
+              },
+              this.soundAlert!.trackDuration
+          )
+          this.soundCloudPlayer.seekTo(0);
+          this.soundCloudPlayer.play();
         },
-        this.soundAlert!.trackDuration
-    )
-
-    this.soundCloudPlayer.seekTo(0);
-    this.soundCloudPlayer.play();
+        this.soundAlert!.trackDelay || 0
+    );
   }
 
   public simulateTimerMainLoop() {

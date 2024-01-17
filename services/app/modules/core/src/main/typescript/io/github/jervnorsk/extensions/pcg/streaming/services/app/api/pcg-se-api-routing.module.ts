@@ -28,7 +28,8 @@ const routes: Routes = [
             component: PcgSeSoundAlertComponent,
             data: {
               gen: "i",
-              type: "wild_battle"
+              type: "wild_battle",
+              delay: 3000
             }
           }
         ]
